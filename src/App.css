@@ -1,7 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "DisposableDroid";
+  src: url("../public/Fonts/DisposableDroidBB.ttf");
+}
+@font-face {
+  font-family: "ka1";
+  src: url("../public/Fonts/ka1.ttf");
+}
 .App {
   text-align: center;
+  cursor: none;
 }
-
+.name{
+  display: none;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
