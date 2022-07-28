@@ -13,6 +13,7 @@
 .App {
   text-align: center;
   cursor: none;
+  background-color: #09002F;
 }
 .name{
   display: none;
@@ -20,6 +21,10 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+html{
+  overflow-x: hidden;
+  background-color: #09002F;
 }
 
 @media (prefers-reduced-motion: no-preference) {

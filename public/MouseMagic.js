@@ -1,5 +1,5 @@
-const canvas = document.getElementById('mousetrails');
-const ctx = canvas.getContext('2d');
+const canvas = document.getElementById("mousetrails");
+const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 const particlesArray = [];
@@ -13,7 +13,10 @@ const sheetH = 64;
 
 const frameW = sheetW / cols;
 const frameH = sheetH / rows;
-window.addEventListener('resize', function () {
+
+let started = false;
+
+window.addEventListener("resize", function () {
 	canvas.width = window.innerWidth;
 	canvas.height = window.innerHeight;
 });
@@ -21,7 +24,7 @@ const mouse = {
 	x: undefined,
 	y: undefined,
 };
-document.addEventListener('mousemove', ({ x, y }) => {
+document.addEventListener("mousemove", ({ x, y }) => {
 	mouse.x = x;
 	mouse.y = y;
 	if (frame % 1 === 0) {
@@ -32,7 +35,7 @@ document.addEventListener('mousemove', ({ x, y }) => {
 });
 const orb = new Image();
 orb.src =
-	'https://cdn.discordapp.com/attachments/760776202121117706/1000521269437014036/experience_orb_1.png';
+	"https://cdn.discordapp.com/attachments/760776202121117706/1000521269437014036/experience_orb_1.png";
 class Particle {
 	constructor(x, y, speed, life, white) {
 		this.x = x;
@@ -40,7 +43,7 @@ class Particle {
 		this.size = Math.random() * 10 + 1;
 		this.speedX = (Math.random() * 5 - 1.5) * speed;
 		this.speedY = (Math.random() * 5 - 1.5) * speed;
-		this.color = 'hsl(' + hue + ', 100%, 100%)';
+		this.color = "hsl(" + hue + ", 100%, 100%)";
 		this.currentFrame = 0;
 		this.currCol = 0;
 		this.currRow = 0;
@@ -121,7 +124,8 @@ function animate() {
 			particlesArray.push(
 				new Particle(
 					(Math.random() * canvas.width) / 1.1 + canvas.width / 10,
-					(Math.random() * canvas.height) / 1 / 1 + canvas.height / 10,
+					(Math.random() * canvas.height) / 1 / 1 +
+						canvas.height / 10,
 					0.3,
 					3,
 					true,
@@ -130,10 +134,10 @@ function animate() {
 		}
 	}
 	if (frame > 30 && frame < 45) {
-		const header = document.getElementById('name');
-		const sub = document.getElementById('sub');
-		header.style.display = 'block';
-		sub.style.display = 'block';
+		const header = document.getElementById("name");
+		const sub = document.getElementById("sub");
+		header.style.display = "block";
+		sub.style.display = "block";
 		for (let i = 0; i < 5; i++) {
 			particlesArray.push(
 				new Particle(
@@ -157,22 +161,22 @@ function animate() {
 		);
 	}
 	if (frame > 100 && window.scrollY < 100) {
-		console.log('dripoploguy');
-		const header = document.getElementById('name');
-		const sub = document.getElementById('sub');
-		header.style.display = 'block';
-		sub.style.display = 'block';
+		console.log("dripoploguy");
+		const header = document.getElementById("name");
+		const sub = document.getElementById("sub");
+		header.style.display = "block";
+		sub.style.display = "block";
 	}
-	if (window.scrollY > 900 && frame % 5 == 0) {
-		const header = document.getElementById('name');
-		const sub = document.getElementById('sub');
+	if (window.scrollY > 900 && frame % 5 == 0 && window.scrollY < 1600) {
+		const header = document.getElementById("name");
+		const sub = document.getElementById("sub");
 		// @TO-DO calculate this value later. Probably duration + 1.5 * width smth like that?
 		if (window.scrollY > 1000) {
-			header.style.display = 'none';
-			sub.style.display = 'none';
+			header.style.display = "none";
+			sub.style.display = "none";
 		}
 		const dimensions = document
-			.getElementById('engineer')
+			.getElementById("engineer")
 			.getBoundingClientRect();
 
 		const left = window.innerWidth / 2 - dimensions.width * 0.5;
@@ -190,4 +194,3 @@ function animate() {
 	}
 	requestAnimationFrame(animate);
 }
-animate();
