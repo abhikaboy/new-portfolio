@@ -1,15 +1,33 @@
-import { Box, Center, Heading, Image, Stack, Text } from "@chakra-ui/react";
-import React from "react";
-import "@fontsource/inter";
-import split from "./yuh.svg";
-import wave from "./wave.svg";
-import { Controller, Scene } from "react-scrollmagic";
-import { MotionConfig, motion, transform } from "framer-motion";
+import { Box, Center, Heading, Image, Stack, Text } from '@chakra-ui/react';
+import React, { useState } from 'react';
+import '@fontsource/inter';
+import split from './yuh.svg';
+import wave from './wave.svg';
+import { Controller, Scene } from 'react-scrollmagic';
+import { MotionConfig, motion, transform } from 'framer-motion';
+import { projectParticles } from '../bridge';
 
 export default function Landing({ scroll }) {
+	const [projectHover, setHover] = useState(false);
+	const variants = {
+		highlight: { scale: 1.25 },
+		not: { scale: 1 },
+	};
+	const variantsBg = {
+		highlight: {
+			// backgroundColor: '#fff',
+			// color: 'red',
+			// filter: 'brightness(5)',
+		},
+		not: {
+			// backgroundColor: '#09002F',
+			// color: 'white',
+			// filter: 'brightness(1)',
+		},
+	};
 	return (
 		<div>
-			<Controller style={{ backgroundColor: "#09002F" }}>
+			<Controller style={{ backgroundColor: '#09002F' }}>
 				{console.log(scroll)}
 
 				<Image src={split} position='absolute' w='100vw' h='100vh' />
@@ -20,7 +38,7 @@ export default function Landing({ scroll }) {
 					h='100vh'
 					mt='100vh'
 					style={{
-						transform: "scaleY(-1)",
+						transform: 'scaleY(-1)',
 					}}
 				/>
 				<Box w='100vw' h='100vh' bg='#09002F'>
@@ -28,21 +46,24 @@ export default function Landing({ scroll }) {
 						duration={800}
 						pin={{ pushFollowers: true }}
 						triggerHook={0}
-						offset={0}>
+						offset={0}
+					>
 						<Center h='90%'>
 							<Stack gap={0}>
 								<motion.div
 									initial={{ x: -500, opacity: 0 }}
 									whileInView={{ x: 0, opacity: 1 }}
 									id='sub'
-									style={{ display: "none" }}>
+									style={{ display: 'none' }}
+								>
 									<Text
 										color='white'
 										style={{
 											transform: `translateX(${scroll})px`,
 										}}
 										ml={`${scroll * 1.75}`}
-										textAlign={"center"}>
+										textAlign={'center'}
+									>
 										hey its
 									</Text>
 								</motion.div>
@@ -50,12 +71,14 @@ export default function Landing({ scroll }) {
 									initial={{ x: 500, opacity: 0 }}
 									whileInView={{ x: 0, opacity: 1 }}
 									id='name'
-									style={{ display: "none" }}>
+									style={{ display: 'none' }}
+								>
 									<Heading
 										color='white'
 										size='4xl'
 										mt={0}
-										mr={`${scroll * 1.75}`}>
+										mr={`${scroll * 1.75}`}
+									>
 										Abhik
 									</Heading>
 								</motion.div>
@@ -67,7 +90,8 @@ export default function Landing({ scroll }) {
 					<Stack
 						position='absolute'
 						w='100%'
-						paddingTop={`${scroll * 0.7 - 750}px`}>
+						paddingTop={`${scroll * 0.7 - 750}px`}
+					>
 						<Center>
 							<Heading color='white' id='engineer'>
 								Full Stack Engineer
@@ -75,41 +99,64 @@ export default function Landing({ scroll }) {
 						</Center>
 						<Text
 							color='white'
-							textAlign={"center"}
+							textAlign={'center'}
 							fontSize='2xl'
 							pl='25%'
 							pr='25%'
-							fontFamily={"DisposableDroid"}>
-							From Robbinsville NJ, I've been designing and
-							creating a wide variety of fun projects that I've
-							been proud of! {`:)`}
+							fontFamily={'DisposableDroid'}
+						>
+							From Robbinsville NJ, I've been designing and creating a wide
+							variety of fun projects that I've been proud of! {`:)`}
 						</Text>
 					</Stack>
 				</Box>
 				<Center w='100%' h='140vh' position='absolute' zIndex={9}>
 					<Image src={wave} />
 				</Center>
-				<Box
-					w='100vw'
-					h='30vh'
-					mt='90vh'
-					position='absolute'
-					bgColor='#09002a'>
-					<Center>
-						<Heading
-							color='white'
-							mt='3%'
-							size={"2xl"}
-							id='projects'>
-							View Projects {">>"}
-						</Heading>
-					</Center>
-				</Box>
+				<motion.div
+					animate={projectHover ? 'highlight' : 'not'}
+					variants={variantsBg}
+				>
+					<Box
+						w='100vw'
+						h='30vh'
+						mt='90vh'
+						position='absolute'
+						bgColor='#09002a'
+					>
+						<Center>
+							<Heading
+								color='white'
+								mt='3%'
+								size={'2xl'}
+								onMouseOver={() => {
+									console.log('akutsukikikiki');
+									setHover(true);
+									projectParticles = true;
+								}}
+								onMouseOut={() => {
+									setHover(false);
+								}}
+								id='projects'
+								zIndex={40}
+							>
+								<motion.div
+									animate={projectHover ? 'highlight' : 'not'}
+									variants={variants}
+								>
+									View Projects {'>>'}
+								</motion.div>
+							</Heading>
+							{/* </motion.a> */}
+						</Center>
+					</Box>
+				</motion.div>
+
 				<Center w='100%' h='280vh' position='absolute' zIndex={9}>
 					<Image
 						src={wave}
 						style={{
-							transform: "scaleY(-1)",
+							transform: 'scaleY(-1)',
 						}}
 					/>
 				</Center>
