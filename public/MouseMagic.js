@@ -14,11 +14,13 @@ const sheetH = 64;
 const frameW = sheetW / cols;
 const frameH = sheetH / rows;
 
+// import { projectHighlight } from '../src/Components/Landing';
+
 let started = false;
 let projectAnimation = false;
 let projectAnimationX = 0;
 let projectParticles = false;
-import { projectParticles } from '../bridge';
+let projectHighlight = false;
 window.addEventListener('resize', function () {
 	canvas.width = window.innerWidth;
 	canvas.height = window.innerHeight;
@@ -107,10 +109,43 @@ function handleParticles() {
 	}
 }
 let headOpacity = 0;
+
 function animate() {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	handleParticles();
+	if (frame == 0) {
+		const projectText = document.getElementById('projects');
+		projectText.addEventListener('mouseenter', () => {
+			projectHighlight = true;
+		});
+		projectText.addEventListener('mouseout', () => {
+			projectHighlight = false;
+		});
+	}
 	frame++;
+	if (projectHighlight) {
+		const dimensions = document
+			.getElementById('projects')
+			.getBoundingClientRect();
+		particlesArray.push(
+			new Particle(
+				(Math.random() * canvas.width) / 1.1 + canvas.width / 10,
+				(Math.random() * canvas.height) / 1 / 1 + canvas.height / 10,
+				0.3,
+				3,
+				true,
+			),
+		);
+		particlesArray.push(
+			new Particle(
+				(Math.random() * canvas.width) / 3 + canvas.width / 3,
+				Math.random() * dimensions.height + dimensions.top,
+				0.3,
+				3,
+				false,
+			),
+		);
+	}
 	if (frame < 10) {
 		for (let i = 0; i < 3; i++) {
 			particlesArray.push(

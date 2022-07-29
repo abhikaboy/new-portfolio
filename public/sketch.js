@@ -4,10 +4,11 @@ let fft;
 let filter, filterFreq, filterRes;
 let loaded = false;
 function preload() {
-	soundFormats("mp3", "ogg");
-	soundFile = loadSound("assets/music");
+	soundFormats('mp3', 'ogg');
+	soundFile = loadSound('assets/music');
 }
 function setup() {
+	console.log('brimstone');
 	animate();
 	// put setup code here
 	loaded = true;

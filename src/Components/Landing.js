@@ -6,7 +6,9 @@ import wave from './wave.svg';
 import { Controller, Scene } from 'react-scrollmagic';
 import { MotionConfig, motion, transform } from 'framer-motion';
 import { projectParticles } from '../bridge';
-
+// import Typing from 'react-typing-animation';
+let projectHighlight = false;
+export { projectHighlight };
 export default function Landing({ scroll }) {
 	const [projectHover, setHover] = useState(false);
 	const variants = {
@@ -28,8 +30,6 @@ export default function Landing({ scroll }) {
 	return (
 		<div>
 			<Controller style={{ backgroundColor: '#09002F' }}>
-				{console.log(scroll)}
-
 				<Image src={split} position='absolute' w='100vw' h='100vh' />
 				<Image
 					src={split}
@@ -90,24 +90,51 @@ export default function Landing({ scroll }) {
 					<Stack
 						position='absolute'
 						w='100%'
-						paddingTop={`${scroll * 0.7 - 750}px`}
+						paddingTop={`${scroll * 0.8 - 700}px`}
 					>
 						<Center>
-							<Heading color='white' id='engineer'>
-								Full Stack Engineer
-							</Heading>
+							<motion.div
+								transition={{ delay: 1 }}
+								initial={{ opacity: 0.3, scale: 0 }}
+								whileInView={{ opacity: 1, scale: 1 }}
+							>
+								<Heading color='white' id='engineer'>
+									Full Stack Engineer
+								</Heading>
+							</motion.div>
 						</Center>
-						<Text
-							color='white'
-							textAlign={'center'}
-							fontSize='2xl'
-							pl='25%'
-							pr='25%'
-							fontFamily={'DisposableDroid'}
-						>
-							From Robbinsville NJ, I've been designing and creating a wide
-							variety of fun projects that I've been proud of! {`:)`}
-						</Text>
+						<Center w='100vw' flex={1}>
+							<motion.div
+								transition={{ delay: 1 }}
+								initial={{ opacity: 0, scale: 0 }}
+								whileInView={{ opacity: 1, scale: 1 }}
+								style={{
+									width: '100vw',
+									position: 'absolute',
+									alignContent: 'center',
+									flex: 1,
+								}}
+							>
+								<Text
+									color='white'
+									textAlign={'center'}
+									fontSize='2xl'
+									w='35%'
+									mt='13vh'
+									id={'bio'}
+									ml='50%'
+									style={{
+										transform: 'translateX(-50%)',
+									}}
+									fontFamily={'DisposableDroid'}
+								>
+									{/* <Typing speed={50}> */}
+									From Robbinsville NJ, I've been designing and creating a wide
+									variety of fun projects that I've been proud of! :)
+									{/* </Typing> */}
+								</Text>
+							</motion.div>
+						</Center>
 					</Stack>
 				</Box>
 				<Center w='100%' h='140vh' position='absolute' zIndex={9}>
@@ -119,8 +146,8 @@ export default function Landing({ scroll }) {
 				>
 					<Box
 						w='100vw'
-						h='30vh'
-						mt='90vh'
+						h='27vh'
+						mt='80vh'
 						position='absolute'
 						bgColor='#09002a'
 					>
@@ -152,7 +179,7 @@ export default function Landing({ scroll }) {
 					</Box>
 				</motion.div>
 
-				<Center w='100%' h='280vh' position='absolute' zIndex={9}>
+				<Center w='100%' h='230vh' position='absolute' zIndex={9}>
 					<Image
 						src={wave}
 						style={{
