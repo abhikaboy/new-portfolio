@@ -33,10 +33,10 @@ const mouse = {
 document.addEventListener('mousemove', ({ x, y }) => {
 	mouse.x = x;
 	mouse.y = y;
-	if (frame % 2 == 0 && enableTrails) {
-		for (let i = 0; i < 1; i++) {
-			particlesArray.push(new Particle(mouse.x, mouse.y, 1, 1.2, false));
-		}
+	if (frame % 8 == 0 && enableTrails && frame > 0) {
+		// for (let i = 0; i < 1; i++) {
+		particlesArray.push(new Particle(mouse.x, mouse.y, 1, 1.2, false));
+		// }
 	}
 });
 const orb = new Image();
@@ -145,7 +145,7 @@ let then = Date.now();
 let rightHighlight = false;
 let leftHighlight = false;
 let projectListenersAdded = false;
-const fpsInterval = 33;
+const fpsInterval = 50;
 function animate() {
 	console.log(location.pathname);
 	now = Date.now();
@@ -194,7 +194,7 @@ function animate() {
 			);
 		}
 		if (frame < 10) {
-			for (let i = 0; i < 3; i++) {
+			for (let i = 0; i < 2; i++) {
 				particlesArray.push(
 					new Particle(
 						(Math.random() * canvas.width) / 3 + canvas.width / 3,
@@ -205,7 +205,7 @@ function animate() {
 					),
 				);
 			}
-			for (let i = 0; i < 5; i++) {
+			for (let i = 0; i < 3; i++) {
 				particlesArray.push(
 					new Particle(
 						(Math.random() * canvas.width) / 1.1 + canvas.width / 10,
