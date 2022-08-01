@@ -151,8 +151,9 @@ function animate() {
 	now = Date.now();
 	elapsed = now - then;
 	if (
-		elapsed > fpsInterval &&
-		location.pathname.toLocaleLowerCase() == '/home'
+		(elapsed > fpsInterval &&
+			location.pathname.toLocaleLowerCase() == '/home') ||
+		location.pathname.toLocaleLowerCase() == '/'
 	) {
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 		handleParticles();
