@@ -3,9 +3,8 @@ import React, { useState } from 'react';
 import '@fontsource/inter';
 import split from './yuh.svg';
 import wave from './wave.svg';
-import { Controller, Scene } from 'react-scrollmagic';
+// import { Controller, Scene } from 'react-scrollmagic';
 import { MotionConfig, motion, AnimatePresence } from 'framer-motion';
-import { projectParticles } from '../bridge';
 import { Link } from 'react-router-dom';
 // import Typing from 'react-typing-animation';
 let projectHighlight = false;
@@ -30,7 +29,7 @@ export default function Landing() {
 	};
 	return (
 		<div style={{ backgroundColor: '#09002F' }}>
-			<Controller style={{ backgroundColor: '#09002F' }}>
+			<div style={{ backgroundColor: '#09002F' }}>
 				<Image src={split} position='absolute' w='100vw' h='100vh' mb='0' />
 				<Image
 					src={split}
@@ -43,56 +42,57 @@ export default function Landing() {
 					}}
 				/>
 				<Box w='100vw' h='100vh' bg='#09002F'>
-					<Scene
+					{/* <Scene
 						duration={800}
 						pin={{ pushFollowers: true }}
 						triggerHook={0}
 						offset={0}
-					>
-						<Center h='90%'>
-							<Stack gap={0}>
-								<motion.div
-									initial={{ x: -500, opacity: 0, scale: 0 }}
-									whileInView={{ x: 0, opacity: 1, scale: 1 }}
-									id='sub'
-									style={{ display: 'none' }}
+					> */}
+					<Center h='90%'>
+						<Stack gap={0}>
+							<motion.div
+								initial={{ x: -500, opacity: 0, scale: 0 }}
+								whileInView={{ x: 0, opacity: 1, scale: 1 }}
+								id='sub'
+								style={{ display: 'none' }}
+							>
+								<Text
+									color='white'
+									// style={{
+									// 	transform: `translateX(${window.scrollY})px`,
+									// }}
+									ml={`${window.scrollY * 1.75}`}
+									mt={window.scrollY * 1}
+									textAlign={'center'}
+									fontFamily={'DisposableDroid'}
+									transform='auto'
+									fontSize={'1.2em'}
+									translateY={'1vh'}
 								>
-									<Text
-										color='white'
-										// style={{
-										// 	transform: `translateX(${window.scrollY})px`,
-										// }}
-										ml={`${window.scrollY * 1.75}`}
-										textAlign={'center'}
-										fontFamily={'DisposableDroid'}
-										transform='auto'
-										fontSize={'1.2em'}
-										translateY={'1vh'}
-									>
-										hey its
-									</Text>
-								</motion.div>
-								<motion.div
-									initial={{ x: 500, opacity: 0, scale: 0.4 }}
-									whileInView={{ x: 0, opacity: 1, scale: 1 }}
-									transition={{
-										scale: { duration: 0.3, delay: 0.1 },
-									}}
-									id='name'
-									style={{ display: 'none' }}
+									hey its
+								</Text>
+							</motion.div>
+							<motion.div
+								initial={{ x: 500, opacity: 0, scale: 0.4 }}
+								whileInView={{ x: 0, opacity: 1, scale: 1 }}
+								transition={{
+									scale: { duration: 0.3, delay: 0.1 },
+								}}
+								id='name'
+								style={{ display: 'none' }}
+							>
+								<Heading
+									color='white'
+									size='4xl'
+									mt={0}
+									mr={`${window.scrollY * 1.75}`}
 								>
-									<Heading
-										color='white'
-										size='4xl'
-										mt={0}
-										mr={`${window.scrollY * 1.75}`}
-									>
-										Abhik
-									</Heading>
-								</motion.div>
-							</Stack>
-						</Center>
-					</Scene>
+									Abhik
+								</Heading>
+							</motion.div>
+						</Stack>
+					</Center>
+					{/* </Scene> */}
 				</Box>
 				<Box bg='#09002F' paddingTop='50vh'>
 					<AnimatePresence>
@@ -158,7 +158,7 @@ export default function Landing() {
 					onMouseEnter={() => {
 						setHover(true);
 						try {
-							projectParticles = true;
+							// projectParticles = true;
 						} catch (e) {
 							console.log(e);
 						}
@@ -295,7 +295,7 @@ export default function Landing() {
 						</Center>
 					</motion.div>
 				</motion.div>
-			</Controller>
+			</div>
 		</div>
 	);
 }
