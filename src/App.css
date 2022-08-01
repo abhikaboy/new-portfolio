@@ -13,10 +13,13 @@
 .App {
   text-align: center;
   cursor: none;
-  background-color: #09002F;
+background-color: #09002F;
 }
 .name{
   display: none;
+}
+.css-14hngpl{
+  display:none;
 }
 .App-logo {
   height: 40vmin;

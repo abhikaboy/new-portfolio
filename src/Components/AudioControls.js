@@ -29,7 +29,7 @@ export default function AudioControls() {
 			>
 				<HStack h='100%' pb='10'>
 					<Center>
-						<Button variant={'ghost'} color='white' size='sm'>
+						<Button variant={'ghost'} color='white' size='sm' id='enableTrails'>
 							Cursor Trail
 						</Button>
 					</Center>

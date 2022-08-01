@@ -7,6 +7,12 @@
     mix-blend-mode: blend;
     opacity: 0.4;
 }
+.p5canvas{
+    display: none;
+}
+#defaultCanvas0{
+    display: none;
+}
 html{
 
 cursor: url('https://cdn.discordapp.com/attachments/740939397045682270/1000881114405158942/22becce14efa74bc6c83bec78f9d9b1e-pixel-hand-cursor-icon_1.png'), auto;

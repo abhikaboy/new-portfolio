@@ -16,34 +16,26 @@ export default function NavBar() {
 				width: '100vw',
 			}}
 		>
-			<Box
-				borderRadius='20px'
-				bg='rgba(0,0,0,0.1)'
-				posiiton='absolute'
-				w='50vw'
-				h='6vh'
-				style={{
-					transform: 'translate(50%,-10px)',
-					backdropFilter: 'blur(10px)',
-				}}
-			>
-				<HStack
-					h='100%'
-					w='100%'
-					ml='50%'
+			<Center posiiton='absolute'>
+				<Box
+					borderRadius='20px'
+					bg='rgba(0,0,0,0.3)'
+					posiiton='absolute'
+					w={['90vw', '75vw', '50vw']}
+					h='6vh'
 					style={{
-						transform: 'translate(-20%)',
+						transform: 'translate(0%,-10px)',
+						backdropFilter: 'blur(10px)',
 					}}
-					textAlign={'center'}
-					flex={1}
-					gap={8}
-					alignContent='center'
 				>
-					<NavBarItem text='Projects' />
-					<NavBarItem text='Photography' />
-					<NavBarItem text='Contact' />
-				</HStack>
-			</Box>
+					<Center mt='2' w='100%'>
+						<NavBarItem text='Home' />
+						<NavBarItem text='Projects' />
+						<NavBarItem text='Photography' />
+						<NavBarItem text='Contact' />
+					</Center>
+				</Box>
+			</Center>
 		</motion.div>
 	);
 }

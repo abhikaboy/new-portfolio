@@ -7,7 +7,7 @@ import '@fontsource/inter/700.css';
 import '@fontsource/inter/200.css';
 import '@fontsource/inter/400.css';
 import AudioControls from './Components/AudioControls';
-import NavBar from './Components/NavBar';
+import { motion } from 'framer-motion';
 
 function App() {
 	const [scrollPosition, setScroll] = useState(0);
@@ -17,12 +17,15 @@ function App() {
 		});
 	}, []);
 	return (
-		<ChakraProvider theme={theme} style={{ backgroundColor: '#09002F' }}>
-			<NavBar />
+		<motion.div
+			initial={{ rotate: 180 }}
+			animate={{ rotate: 0 }}
+			exit={{ rotate: -180, display: 'none' }}
+		>
 			<AudioControls />
 			<Landing scroll={scrollPosition} style={{ backgroundColor: '#09002F' }} />
-			<Box h='400vh' bg='#09002F'></Box>
-		</ChakraProvider>
+			<Box h='200vh' bg='#09002F'></Box>
+		</motion.div>
 	);
 }
 
