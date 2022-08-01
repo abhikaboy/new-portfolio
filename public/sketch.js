@@ -14,7 +14,7 @@ function setup() {
 	// put setup code here
 	loaded = true;
 	// loop the sound file
-	soundFile.loop();
+	// soundFile.loop();
 	soundFile.setVolume(0.1);
 
 	filter = new p5.LowPass();
