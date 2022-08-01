@@ -222,7 +222,7 @@ function animate() {
 			const sub = document.getElementById('sub');
 			header.style.display = 'block';
 			sub.style.display = 'block';
-			for (let i = 0; i < 5; i++) {
+			for (let i = 0; i < 3; i++) {
 				particlesArray.push(
 					new Particle(
 						(Math.random() * canvas.width) / 3 + canvas.width / 3,
@@ -257,11 +257,11 @@ function animate() {
 				.getElementById('projectText')
 				.getBoundingClientRect();
 			if (!projectAnimation) {
-				for (let i = 0; i < 2; i++) {
-					particlesArray.push(
-						new Particle(projectAnimationX, dimensions.bottom, 4, 2, false),
-					);
-				}
+				// for (let i = 0; i < 1; i++) {
+				particlesArray.push(
+					new Particle(projectAnimationX, dimensions.bottom, 4, 2, false),
+				);
+				// }
 				projectAnimationX += 50;
 				if (projectAnimationX > window.innerWidth) {
 					projectAnimation = true;
