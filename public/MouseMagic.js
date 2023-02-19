@@ -28,7 +28,7 @@ window.addEventListener('resize', function () {
 });
 const mouse = {
 	x: undefined,
-	y: undefined,
+	y: undefined
 };
 document.addEventListener('mousemove', ({ x, y }) => {
 	mouse.x = x;
@@ -82,7 +82,7 @@ class Particle {
 			this.x - (frameW * this.size) / 8,
 			this.y - (frameH * this.size) / 8,
 			(frameW * this.size) / 4,
-			(frameH * this.size) / 4,
+			(frameH * this.size) / 4
 		);
 
 		if (frame % 1 == 0) {
@@ -162,11 +162,11 @@ function animate() {
 			const projectText = document.getElementById('projects');
 			projectText.addEventListener('mouseenter', () => {
 				projectHighlight = true;
-				toggleSound(true);
+				// toggleSound(true);
 			});
 			projectText.addEventListener('mouseout', () => {
 				projectHighlight = false;
-				toggleSound(false);
+				// toggleSound(false);
 			});
 		}
 		frame++;
@@ -180,8 +180,8 @@ function animate() {
 					(Math.random() * canvas.height) / 1 / 1 + canvas.height / 10,
 					0.3,
 					3,
-					true,
-				),
+					true
+				)
 			);
 			particlesArray.push(
 				new Particle(
@@ -189,11 +189,11 @@ function animate() {
 					Math.random() * dimensions.height + dimensions.top,
 					0.3,
 					3,
-					false,
-				),
+					false
+				)
 			);
 		}
-		if (frame < 10) {
+		if (frame < 3) {
 			for (let i = 0; i < 2; i++) {
 				particlesArray.push(
 					new Particle(
@@ -201,8 +201,8 @@ function animate() {
 						(Math.random() * canvas.height) / 4 + canvas.height / 3,
 						0.3,
 						3,
-						false,
-					),
+						false
+					)
 				);
 			}
 			for (let i = 0; i < 3; i++) {
@@ -212,28 +212,28 @@ function animate() {
 						(Math.random() * canvas.height) / 1 / 1 + canvas.height / 10,
 						0.3,
 						3,
-						true,
-					),
+						true
+					)
 				);
 			}
 		}
-		if (frame > 30 && frame < 45) {
+		if (frame > 40 && frame < 50) {
 			const header = document.getElementById('name');
 			const sub = document.getElementById('sub');
 			header.style.display = 'block';
 			sub.style.display = 'block';
-			for (let i = 0; i < 3; i++) {
+			for (let i = 0; i < 1; i++) {
 				particlesArray.push(
 					new Particle(
 						(Math.random() * canvas.width) / 3 + canvas.width / 3,
 						(Math.random() * canvas.height) / 4 + canvas.height / 3,
 						10,
 						1,
-						false,
-					),
+						false
+					)
 				);
 			}
-		} else if (frame > 60 && frame % 3 == 0 && window.scrollY < 600) {
+		} else if (frame > 60 && frame % 6 == 0 && window.scrollY < 600) {
 			projectAnimation = false;
 			particlesArray.push(
 				new Particle(
@@ -241,8 +241,8 @@ function animate() {
 					(Math.random() * canvas.height) / 1 / 1 + canvas.height / 10,
 					0.8,
 					0.8,
-					true,
-				),
+					true
+				)
 			);
 		}
 		if (frame > 100 && window.scrollY < 100) {
@@ -259,7 +259,7 @@ function animate() {
 			if (!projectAnimation) {
 				// for (let i = 0; i < 1; i++) {
 				particlesArray.push(
-					new Particle(projectAnimationX, dimensions.bottom, 4, 2, false),
+					new Particle(projectAnimationX, dimensions.bottom, 4, 2, false)
 				);
 				// }
 				projectAnimationX += 50;
@@ -285,26 +285,26 @@ function animate() {
 			text.style.display = 'flex';
 
 			const left = window.innerWidth / 2 - dimensions.width * 0.5;
-			if (frame % 10 == 0) {
+			if (frame % 20 == 0) {
 				particlesArray.push(
 					new Triangle(
 						Math.random() * window.innerWidth,
 						Math.random() * window.innerHeight,
 						0.3,
 						0.2,
-						true,
-					),
+						true
+					)
 				);
 			}
-			particlesArray.push(
-				new Particle(
-					Math.random() * dimensions.width + left,
-					dimensions.bottom,
-					0.4,
-					2,
-					false,
-				),
-			);
+			// particlesArray.push(
+			// 	new Particle(
+			// 		Math.random() * dimensions.width + left,
+			// 		dimensions.bottom,
+			// 		0.4,
+			// 		2,
+			// 		false
+			// 	)
+			// );
 		}
 	} else if (
 		elapsed > fpsInterval &&
@@ -336,8 +336,8 @@ function animate() {
 						Math.random() * window.innerHeight,
 						2,
 						3,
-						true,
-					),
+						true
+					)
 				);
 			}
 		}
@@ -349,8 +349,8 @@ function animate() {
 						Math.random() * window.innerHeight,
 						2,
 						3,
-						true,
-					),
+						true
+					)
 				);
 			}
 		}
@@ -369,8 +369,8 @@ function animate() {
 					Math.random() * window.innerHeight,
 					0.1,
 					0.1,
-					true,
-				),
+					true
+				)
 			);
 		}
 	} else if (elapsed > fpsInterval) {
@@ -380,3 +380,4 @@ function animate() {
 	}
 	requestAnimationFrame(animate);
 }
+animate();

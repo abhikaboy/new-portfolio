@@ -13,19 +13,7 @@ export default function Landing() {
 	const [projectHover, setHover] = useState(false);
 	const variants = {
 		highlight: { scale: 1.25 },
-		not: { scale: 1 },
-	};
-	const variantsBg = {
-		highlight: {
-			// backgroundColor: '#fff',
-			// color: 'red',
-			// filter: 'brightness(5)',
-		},
-		not: {
-			// backgroundColor: '#09002F',
-			// color: 'white',
-			// filter: 'brightness(1)',
-		},
+		not: { scale: 1 }
 	};
 	return (
 		<div style={{ backgroundColor: '#09002F' }}>
@@ -38,29 +26,20 @@ export default function Landing() {
 					h='100vh'
 					mt='98.7vh'
 					style={{
-						transform: 'scaleY(-1)',
+						transform: 'scaleY(-1)'
 					}}
 				/>
 				<Box w='100vw' h='100vh' bg='#09002F'>
-					{/* <Scene
-						duration={800}
-						pin={{ pushFollowers: true }}
-						triggerHook={0}
-						offset={0}
-					> */}
 					<Center h='90%'>
 						<Stack gap={0}>
 							<motion.div
-								initial={{ x: -500, opacity: 0, scale: 0 }}
+								initial={{ x: -300, opacity: 0, scale: 0.1 }}
 								whileInView={{ x: 0, opacity: 1, scale: 1 }}
 								id='sub'
-								style={{ display: 'none' }}
+								viewport={{ once: true }}
 							>
 								<Text
 									color='white'
-									// style={{
-									// 	transform: `translateX(${window.scrollY})px`,
-									// }}
 									ml={`${window.scrollY * 1.75}`}
 									mt={window.scrollY * 1}
 									textAlign={'center'}
@@ -76,10 +55,11 @@ export default function Landing() {
 								initial={{ x: 500, opacity: 0, scale: 0.4 }}
 								whileInView={{ x: 0, opacity: 1, scale: 1 }}
 								transition={{
-									scale: { duration: 0.3, delay: 0.1 },
+									scale: { duration: 0.3, delay: 0.1 }
 								}}
+								viewport={{ once: true }}
 								id='name'
-								style={{ display: 'none' }}
+								// style={{ display: 'none' }}
 							>
 								<Heading
 									color='white'
@@ -97,7 +77,7 @@ export default function Landing() {
 				<Box bg='#09002F' paddingTop='50vh'>
 					<AnimatePresence>
 						{window.scrollY < 1800 && (
-							<motion.div exit={{ opacity: 0 }}>
+							<motion.div exit={{ opacity: 0 }} viewport={{ once: true }}>
 								<Stack
 									position='absolute'
 									w='100%'
@@ -109,6 +89,7 @@ export default function Landing() {
 											transition={{ delay: 0.2 }}
 											initial={{ opacity: 0.3, scale: 0 }}
 											whileInView={{ opacity: 1, scale: 1 }}
+											viewport={{ once: true }}
 											exit={{ opacity: 0 }}
 										>
 											<Heading color='white' id='engineer'>
@@ -122,11 +103,12 @@ export default function Landing() {
 											initial={{ opacity: 0, scale: 0 }}
 											whileInView={{ opacity: 1, scale: 1 }}
 											exit={{ opacity: 0 }}
+											viewport={{ once: true }}
 											style={{
 												width: '100vw',
 												position: 'absolute',
 												alignContent: 'center',
-												flex: 1,
+												flex: 1
 											}}
 										>
 											<Text
@@ -134,16 +116,18 @@ export default function Landing() {
 												textAlign={'center'}
 												fontSize='2xl'
 												w={['90%', '75%', '65%', '55%', '35%']}
-												mt='13vh'
+												mt={['35vh', '25vh']}
 												id={'bio'}
 												ml='50%'
 												style={{
-													transform: 'translateX(-50%)',
+													transform: 'translateX(-50%)'
 												}}
 												fontFamily={'DisposableDroid'}
 											>
 												From Robbinsville NJ, I've been designing and creating a
 												wide variety of fun projects that I've been proud of! :)
+												I am also an incoming freshman at Northeastern
+												University studying CS & Media Arts!
 											</Text>
 										</motion.div>
 									</Center>
@@ -154,7 +138,6 @@ export default function Landing() {
 				</Box>
 				<motion.div
 					animate={projectHover ? 'highlight' : 'not'}
-					variants={variantsBg}
 					onMouseEnter={() => {
 						setHover(true);
 						try {
@@ -168,32 +151,33 @@ export default function Landing() {
 					}}
 				>
 					<Stack mt='80vh'>
-						<Image
+						{/* <Image
 							src={wave}
 							style={{
 								backdropFilter: 'blur(2px)',
-								zIndex: 2,
+								zIndex: 2
 							}}
 							h='20vh'
 							w='100vw'
 							objectFit={'cover'}
-						></Image>
+						></Image> */}
 						<Box
 							w='100vw'
-							h='27vh'
+							h='60vh'
 							bgColor='#09002a'
 							opacity='1'
 							id='projects'
 							zIndex={40}
-							translateY='-2vh'
+							// translateY='-2vh'
 							transform={'auto'}
 						>
-							<Center>
-								<Heading color='white' mt='3%' size={'2xl'} zIndex={40}>
+							<Center h='100%'>
+								<Heading color='white' size={'2xl'} zIndex={40}>
 									<motion.div
 										animate={projectHover ? 'highlight' : 'not'}
 										variants={variants}
 										style={{ zIndex: 60 }}
+										viewport={{ once: true }}
 									>
 										<Link
 											id='projectText'
@@ -209,11 +193,11 @@ export default function Landing() {
 							</Center>
 						</Box>
 
-						<Image
+						{/* <Image
 							src={wave}
 							style={{
 								backdropFilter: 'blur(2px)',
-								zIndex: 2,
+								zIndex: 2
 							}}
 							h='20vh'
 							w='100vw'
@@ -221,7 +205,7 @@ export default function Landing() {
 							transform='auto'
 							translateY={'-4vh'}
 							scaleY='-1'
-						></Image>
+						></Image> */}
 					</Stack>
 				</motion.div>
 
@@ -244,6 +228,7 @@ export default function Landing() {
 					initial={{ x: -window.innerWidth }}
 					whileInView={{ x: 0 }}
 					transition={{ delay: 0.5 }}
+					viewport={{ once: true }}
 				>
 					<Heading color={'white'} textAlign='center' pt='20vh'>
 						Catch me with MongoDB!
@@ -254,8 +239,9 @@ export default function Landing() {
 						whileInView={{ scale: 1, rotate: 0 }}
 						exit={{ scale: 0, rotate: -180 }}
 						transition={{ delay: 0.5 }}
+						viewport={{ once: true }}
 					>
-						<Center zIndex={20}>
+						<Center zIndex={20} p='1%'>
 							<Box
 								borderRadius={10}
 								borderStyle='solid'
@@ -280,6 +266,7 @@ export default function Landing() {
 						whileInView={{ x: 0 }}
 						exit={{ scale: 0, rotate: -180 }}
 						transition={{ delay: 0.6 }}
+						viewport={{ once: true }}
 					>
 						<Center>
 							<Text

@@ -13,10 +13,10 @@ export default function AudioControls() {
 				height: '6vh',
 				zIndex: 10,
 				left: '2vw',
-				overflow: 'hidden',
+				overflow: 'hidden'
 			}}
 		>
-			<Box
+			{/* <Box
 				borderRadius={5}
 				height='100%'
 				bgColor='rgba(255,255,255,0.2)'
@@ -34,7 +34,7 @@ export default function AudioControls() {
 						</Button>
 					</Center>
 				</HStack>
-			</Box>
+			</Box> */}
 		</motion.div>
 	);
 }
