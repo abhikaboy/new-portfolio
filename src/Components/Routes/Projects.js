@@ -5,24 +5,15 @@ import { Box, Center, Heading, HStack } from '@chakra-ui/react';
 import ProjectNavigation from './ProjectComponents/ProjectNavigation';
 import ProjectPage from './ProjectComponents/ProjectPage';
 const projects = [
-	'Echidna',
 	'Relay',
 	'Iris',
 	'Scouting App',
 	'JSON Forms',
 	'Battle House',
 	'Venusian Village',
+	'Echidna',
 ];
 const projectComponents = [
-	<ProjectPage
-		thumbnail='https://static.zerochan.net/Echidna.%28Re%3AZero%29.full.2042368.jpg'
-		title='Echidna'
-		description='Bot used during quarantine to help students by helping adjusting to online school'
-		sub='Quarantine Discord Bot'
-		madeWith={['Discord.js', 'Node', 'Javascript']}
-		start='10/23/2020'
-		modify='7/21/2021'
-	/>,
 	<ProjectPage
 		thumbnail='https://cdn.discordapp.com/attachments/760776202121117706/1003185318784143491/unknown.png'
 		title='Relay'
@@ -84,6 +75,15 @@ const projectComponents = [
 		madeWith={['Python', 'Flask', 'Pygame']}
 		start='December 2021'
 		modify='December 2021'
+	/>,
+	<ProjectPage
+		thumbnail='https://static.zerochan.net/Echidna.%28Re%3AZero%29.full.2042368.jpg'
+		title='Echidna'
+		description='Bot used during quarantine to help students by helping adjusting to online school'
+		sub='Quarantine Discord Bot'
+		madeWith={['Discord.js', 'Node', 'Javascript']}
+		start='10/23/2020'
+		modify='7/21/2021'
 	/>,
 ];
 function getPage(current) {

@@ -13,12 +13,18 @@ export default function Landing() {
 	const [projectHover, setHover] = useState(false);
 	const variants = {
 		highlight: { scale: 1.25 },
-		not: { scale: 1 }
+		not: { scale: 1 },
 	};
 	return (
 		<div style={{ backgroundColor: '#09002F' }}>
 			<div style={{ backgroundColor: '#09002F' }}>
-				<Image src={split} position='absolute' w='100vw' h='100vh' mb='0' />
+				<Image
+					src={split}
+					position='absolute'
+					w='100vw'
+					h='100vh'
+					mb='0'
+				/>
 				<Image
 					src={split}
 					position='absolute'
@@ -26,7 +32,7 @@ export default function Landing() {
 					h='100vh'
 					mt='98.7vh'
 					style={{
-						transform: 'scaleY(-1)'
+						transform: 'scaleY(-1)',
 					}}
 				/>
 				<Box w='100vw' h='100vh' bg='#09002F'>
@@ -55,7 +61,7 @@ export default function Landing() {
 								initial={{ x: 500, opacity: 0, scale: 0.4 }}
 								whileInView={{ x: 0, opacity: 1, scale: 1 }}
 								transition={{
-									scale: { duration: 0.3, delay: 0.1 }
+									scale: { duration: 0.3, delay: 0.1 },
 								}}
 								viewport={{ once: true }}
 								id='name'
@@ -77,22 +83,33 @@ export default function Landing() {
 				<Box bg='#09002F' paddingTop='50vh'>
 					<AnimatePresence>
 						{window.scrollY < 1800 && (
-							<motion.div exit={{ opacity: 0 }} viewport={{ once: true }}>
+							<motion.div
+								exit={{ opacity: 0 }}
+								viewport={{ once: true }}
+							>
 								<Stack
 									position='absolute'
 									w='100%'
-									paddingTop={`${window.scrollY * 0.8 - 700}px`}
+									paddingTop={`${
+										window.scrollY * 0.8 - 700
+									}px`}
 									id='aboutText'
 								>
 									<Center>
 										<motion.div
 											transition={{ delay: 0.2 }}
 											initial={{ opacity: 0.3, scale: 0 }}
-											whileInView={{ opacity: 1, scale: 1 }}
+											whileInView={{
+												opacity: 1,
+												scale: 1,
+											}}
 											viewport={{ once: true }}
 											exit={{ opacity: 0 }}
 										>
-											<Heading color='white' id='engineer'>
+											<Heading
+												color='white'
+												id='engineer'
+											>
 												Full Stack Engineer
 											</Heading>
 										</motion.div>
@@ -101,33 +118,46 @@ export default function Landing() {
 										<motion.div
 											transition={{ delay: 0.3 }}
 											initial={{ opacity: 0, scale: 0 }}
-											whileInView={{ opacity: 1, scale: 1 }}
+											whileInView={{
+												opacity: 1,
+												scale: 1,
+											}}
 											exit={{ opacity: 0 }}
 											viewport={{ once: true }}
 											style={{
 												width: '100vw',
 												position: 'absolute',
 												alignContent: 'center',
-												flex: 1
+												flex: 1,
 											}}
 										>
 											<Text
 												color='white'
 												textAlign={'center'}
 												fontSize='2xl'
-												w={['90%', '75%', '65%', '55%', '35%']}
+												w={[
+													'90%',
+													'75%',
+													'65%',
+													'55%',
+													'35%',
+												]}
 												mt={['35vh', '25vh']}
 												id={'bio'}
 												ml='50%'
 												style={{
-													transform: 'translateX(-50%)'
+													transform:
+														'translateX(-50%)',
 												}}
 												fontFamily={'DisposableDroid'}
 											>
-												From Robbinsville NJ, I've been designing and creating a
-												wide variety of fun projects that I've been proud of! :)
-												I am also an incoming freshman at Northeastern
-												University studying CS & Media Arts!
+												From Robbinsville NJ, I've been
+												designing and creating a wide
+												variety of fun projects that
+												I've been proud of! :) I am also
+												an incoming freshman at
+												Northeastern University studying
+												CS & Design!
 											</Text>
 										</motion.div>
 									</Center>
@@ -174,7 +204,9 @@ export default function Landing() {
 							<Center h='100%'>
 								<Heading color='white' size={'2xl'} zIndex={40}>
 									<motion.div
-										animate={projectHover ? 'highlight' : 'not'}
+										animate={
+											projectHover ? 'highlight' : 'not'
+										}
 										variants={variants}
 										style={{ zIndex: 60 }}
 										viewport={{ once: true }}
@@ -276,8 +308,9 @@ export default function Landing() {
 								w='50%'
 								textAlign={'center'}
 							>
-								This was taken from MongoDB's .live Community Day where I was
-								brought along as a guest to showcase my product Relay!
+								This was taken from MongoDB's .live Community
+								Day where I was brought along as a guest to
+								showcase my product Relay!
 							</Text>
 						</Center>
 					</motion.div>
