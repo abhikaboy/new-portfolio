@@ -53,7 +53,8 @@ export default function ProjectNav({
 						style={{ zIndex: 60 }}
 						id={right ? 'right' : 'left'}
 					>
-						{text}
+						{!right && !active ? '< ' : ''}
+						{text} {right ? '>' : ''}
 					</motion.div>
 				</Text>
 			</Center>

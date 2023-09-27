@@ -93,7 +93,10 @@ export default function ProjectPage({
 						animate={expanded ? 'expanded' : 'collapse'}
 						variants={variants}
 						exit={{ opacity: 0 }}
-						transition={{ x: { delay: 0.6 }, y: { delay: 0.1, duration: 0.1 } }}
+						transition={{
+							x: { delay: 0.6 },
+							y: { delay: 0.1, duration: 0.1 },
+						}}
 						onClick={() => {
 							setExpand(!expanded);
 						}}
@@ -104,7 +107,9 @@ export default function ProjectPage({
 							left='50vw'
 							position='absolute'
 							style={{
-								transform: `translateX(${expanded ? '0%' : '-50%'})`,
+								transform: `translateX(${
+									expanded ? '0%' : '-50%'
+								})`,
 							}}
 						>
 							{title}
@@ -122,13 +127,17 @@ export default function ProjectPage({
 					<Text
 						position='absolute'
 						left='50vw'
-						style={{ transform: `translateX(${expanded ? '0%' : '-50%'})` }}
+						style={{
+							transform: `translateX(${
+								expanded ? '0%' : '-50%'
+							})`,
+						}}
 						zIndex={5}
 						color='white'
 						fontFamily={'DisposableDroid'}
 						fontSize='1.3em'
 						id={'sub'}
-						mt={['8%', '6%', '5%', '4%', '3%']}
+						mt={['8%', '6%', '6%', '5%', '4%']}
 					>
 						{sub}
 					</Text>
