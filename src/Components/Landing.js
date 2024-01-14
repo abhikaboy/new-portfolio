@@ -18,13 +18,7 @@ export default function Landing() {
 	return (
 		<div style={{ backgroundColor: '#09002F' }}>
 			<div style={{ backgroundColor: '#09002F' }}>
-				<Image
-					src={split}
-					position='absolute'
-					w='100vw'
-					h='100vh'
-					mb='0'
-				/>
+				<Image src={split} position='absolute' w='100vw' h='100vh' mb='0' />
 				<Image
 					src={split}
 					position='absolute'
@@ -42,8 +36,7 @@ export default function Landing() {
 								initial={{ x: -300, opacity: 0, scale: 0.1 }}
 								whileInView={{ x: 0, opacity: 1, scale: 1 }}
 								id='sub'
-								viewport={{ once: true }}
-							>
+								viewport={{ once: true }}>
 								<Text
 									color='white'
 									ml={`${window.scrollY * 1.75}`}
@@ -52,8 +45,7 @@ export default function Landing() {
 									fontFamily={'DisposableDroid'}
 									transform='auto'
 									fontSize={'1.2em'}
-									translateY={'1vh'}
-								>
+									translateY={'1vh'}>
 									hey its
 								</Text>
 							</motion.div>
@@ -67,12 +59,7 @@ export default function Landing() {
 								id='name'
 								// style={{ display: 'none' }}
 							>
-								<Heading
-									color='white'
-									size='4xl'
-									mt={0}
-									mr={`${window.scrollY * 1.75}`}
-								>
+								<Heading color='white' size='4xl' mt={0} mr={`${window.scrollY * 1.75}`}>
 									Abhik
 								</Heading>
 							</motion.div>
@@ -83,18 +70,12 @@ export default function Landing() {
 				<Box bg='#09002F' paddingTop='50vh'>
 					<AnimatePresence>
 						{window.scrollY < 1800 && (
-							<motion.div
-								exit={{ opacity: 0 }}
-								viewport={{ once: true }}
-							>
+							<motion.div exit={{ opacity: 0 }} viewport={{ once: true }}>
 								<Stack
 									position='absolute'
 									w='100%'
-									paddingTop={`${
-										window.scrollY * 0.8 - 700
-									}px`}
-									id='aboutText'
-								>
+									paddingTop={`${window.scrollY * 0.8 - 700}px`}
+									id='aboutText'>
 									<Center>
 										<motion.div
 											transition={{ delay: 0.2 }}
@@ -104,12 +85,8 @@ export default function Landing() {
 												scale: 1,
 											}}
 											viewport={{ once: true }}
-											exit={{ opacity: 0 }}
-										>
-											<Heading
-												color='white'
-												id='engineer'
-											>
+											exit={{ opacity: 0 }}>
+											<Heading color='white' id='engineer'>
 												Full Stack Engineer
 											</Heading>
 										</motion.div>
@@ -129,35 +106,22 @@ export default function Landing() {
 												position: 'absolute',
 												alignContent: 'center',
 												flex: 1,
-											}}
-										>
+											}}>
 											<Text
 												color='white'
 												textAlign={'center'}
 												fontSize='2xl'
-												w={[
-													'90%',
-													'75%',
-													'65%',
-													'55%',
-													'35%',
-												]}
+												w={['90%', '75%', '65%', '55%', '35%']}
 												mt={['35vh', '25vh']}
 												id={'bio'}
 												ml='50%'
 												style={{
-													transform:
-														'translateX(-50%)',
+													transform: 'translateX(-50%)',
 												}}
-												fontFamily={'DisposableDroid'}
-											>
-												From Robbinsville NJ, I've been
-												designing and creating a wide
-												variety of fun projects that
-												I've been proud of! :) I am also
-												an incoming freshman at
-												Northeastern University studying
-												CS & Design!
+												fontFamily={'DisposableDroid'}>
+												From Robbinsville NJ, I've been designing and creating a wide variety of
+												fun projects that I've been proud of! :) I am also a student at
+												Northeastern University studying CS & Design!
 											</Text>
 										</motion.div>
 									</Center>
@@ -178,8 +142,7 @@ export default function Landing() {
 					}}
 					onMouseOut={() => {
 						setHover(false);
-					}}
-				>
+					}}>
 					<Stack mt='80vh'>
 						{/* <Image
 							src={wave}
@@ -199,25 +162,20 @@ export default function Landing() {
 							id='projects'
 							zIndex={40}
 							// translateY='-2vh'
-							transform={'auto'}
-						>
+							transform={'auto'}>
 							<Center h='100%'>
 								<Heading color='white' size={'2xl'} zIndex={40}>
 									<motion.div
-										animate={
-											projectHover ? 'highlight' : 'not'
-										}
+										animate={projectHover ? 'highlight' : 'not'}
 										variants={variants}
 										style={{ zIndex: 60 }}
-										viewport={{ once: true }}
-									>
+										viewport={{ once: true }}>
 										<Link
 											id='projectText'
 											to='/projects'
 											onClick={() => {
 												window.scrollTo(0);
-											}}
-										>
+											}}>
 											View Projects {'>>'}
 										</Link>
 									</motion.div>
@@ -260,8 +218,7 @@ export default function Landing() {
 					initial={{ x: -window.innerWidth }}
 					whileInView={{ x: 0 }}
 					transition={{ delay: 0.5 }}
-					viewport={{ once: true }}
-				>
+					viewport={{ once: true }}>
 					<Heading color={'white'} textAlign='center' pt='20vh'>
 						Catch me with MongoDB!
 					</Heading>
@@ -271,16 +228,14 @@ export default function Landing() {
 						whileInView={{ scale: 1, rotate: 0 }}
 						exit={{ scale: 0, rotate: -180 }}
 						transition={{ delay: 0.5 }}
-						viewport={{ once: true }}
-					>
+						viewport={{ once: true }}>
 						<Center zIndex={20} p='1%'>
 							<Box
 								borderRadius={10}
 								borderStyle='solid'
 								borderWidth={5}
 								borderColor='rgba(25,255,100,0.4)'
-								zIndex={20}
-							>
+								zIndex={20}>
 								<iframe
 									width={window.innerWidth * 0.5}
 									height={window.innerHeight * 0.5}
@@ -288,8 +243,7 @@ export default function Landing() {
 									title='You Tube video player'
 									frameborder='0'
 									allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-									allowfullscreen
-								></iframe>
+									allowfullscreen></iframe>
 							</Box>
 						</Center>
 					</motion.div>
@@ -298,19 +252,16 @@ export default function Landing() {
 						whileInView={{ x: 0 }}
 						exit={{ scale: 0, rotate: -180 }}
 						transition={{ delay: 0.6 }}
-						viewport={{ once: true }}
-					>
+						viewport={{ once: true }}>
 						<Center>
 							<Text
 								color='white'
 								fontFamily={'DisposableDroid'}
 								fontSize='2xl'
 								w='50%'
-								textAlign={'center'}
-							>
-								This was taken from MongoDB's .live Community
-								Day where I was brought along as a guest to
-								showcase my product Relay!
+								textAlign={'center'}>
+								This was taken from MongoDB's .live Community Day where I was brought along as a guest
+								to showcase my product Relay!
 							</Text>
 						</Center>
 					</motion.div>
