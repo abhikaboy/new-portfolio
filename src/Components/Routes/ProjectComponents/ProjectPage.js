@@ -106,6 +106,7 @@ export default function ProjectPage({ thumbnail, title, description, madeWith, s
 					exit={{ opacity: 0 }}
 					transition={{ x: { delay: 0.75 } }}>
 					<Text
+						id='subText'
 						position='absolute'
 						left='50vw'
 						style={{
@@ -115,10 +116,90 @@ export default function ProjectPage({ thumbnail, title, description, madeWith, s
 						color='white'
 						fontFamily={'DisposableDroid'}
 						fontSize='1.3em'
-						id={'sub'}
 						mt={['8%', '6%', '6%', '5%', '4%']}>
 						{sub}
 					</Text>
+					{expanded && (
+						<div
+							style={{
+								transform: `translateX(${expanded ? '0%' : '-50%'})`,
+								marginLeft: '8vw',
+								marginTop: '10vh',
+							}}>
+							<motion.div
+								initial={{ x: window.innerWidth }}
+								animate={{ x: 0 }}
+								transition={{ delay: 1 }}
+								exit={{ opacity: 0 }}
+								style={{
+									marginLeft: '42vw',
+									// y: document.getElementById('sub').offsetHeight - window.innerHeight * 0.5,
+									// y: -document.getElementById('subText').getBoundingClientRect().top,
+								}}>
+								<Text
+									color='white'
+									w='30vw'
+									fontSize={'1.6em'}
+									fontFamily={'DisposableDroid'}
+									ref={descriptionEl}>
+									{description}
+								</Text>
+							</motion.div>
+
+							<HStack zIndex={70}>
+								<motion.div
+									initial={{ x: window.innerWidth }}
+									animate={{ x: 0 }}
+									transition={{ delay: 1.25 }}
+									style={{
+										marginLeft: '42vw',
+										height: '100%',
+										alignSelf: 'flex-start',
+									}}>
+									<Heading color='white' size='md'>
+										Made With
+									</Heading>
+									<Text color='white' w='15vw' fontSize={'1.6em'} fontFamily={'DisposableDroid'}>
+										{madeWith.map((bullet) => (
+											<li
+												style={{
+													paddingTop: -10,
+													paddingBottom: -10,
+													margin: 0,
+													height: '3vh',
+												}}>
+												{bullet}
+											</li>
+										))}
+									</Text>
+								</motion.div>
+
+								<motion.div
+									initial={{ x: window.innerWidth }}
+									animate={{ x: 0 }}
+									transition={{ delay: 1.5 }}
+									exit={{ opacity: 0 }}
+									style={{
+										top: 0,
+										height: '100%',
+										alignSelf: 'flex-start',
+									}}>
+									<Heading color='white' size='md'>
+										Started:
+									</Heading>
+									<Text color='white' w='30vw' fontSize={'1.6em'} fontFamily={'DisposableDroid'}>
+										{start}
+									</Text>
+									<Heading color='white' size='md'>
+										Last Updated:
+									</Heading>
+									<Text color='white' w='30vw' fontSize={'1.6em'} fontFamily={'DisposableDroid'}>
+										{modify}
+									</Text>
+								</motion.div>
+							</HStack>
+						</div>
+					)}
 				</motion.div>
 				<motion.div
 					initial={{ opacity: 0 }}
@@ -144,92 +225,6 @@ export default function ProjectPage({ thumbnail, title, description, madeWith, s
 				</motion.div>
 			</Stack>
 
-			{expanded && (
-				<div
-					style={{
-						height: '20px',
-						// overflow: 'scroll',
-						backgroundColor: 'red',
-						padding: '10px',
-						borderWidth: '2',
-						borderColor: 'white',
-						borderStyle: 'solid',
-					}}>
-					<motion.div
-						initial={{ x: window.innerWidth }}
-						animate={{ x: 0 }}
-						transition={{ delay: 1 }}
-						exit={{ opacity: 0 }}
-						style={{
-							marginLeft: '42vw',
-							y: '-43vh',
-						}}>
-						<Text
-							color='white'
-							w='30vw'
-							fontSize={'1.6em'}
-							fontFamily={'DisposableDroid'}
-							ref={descriptionEl}>
-							{description}
-						</Text>
-					</motion.div>
-
-					<HStack zIndex={70}>
-						<motion.div
-							initial={{ x: window.innerWidth }}
-							animate={{ x: 0 }}
-							transition={{ delay: 1.25 }}
-							style={{
-								marginLeft: '42vw',
-								y: '-40vh',
-								height: '100%',
-								alignSelf: 'flex-start',
-							}}>
-							<Heading color='white' size='md'>
-								Made With
-							</Heading>
-							<Text color='white' w='15vw' fontSize={'1.6em'} fontFamily={'DisposableDroid'}>
-								{madeWith.map((bullet) => (
-									<li
-										style={{
-											paddingTop: -10,
-											paddingBottom: -10,
-											margin: 0,
-											height: '3vh',
-										}}>
-										{bullet}
-									</li>
-								))}
-							</Text>
-						</motion.div>
-
-						<motion.div
-							initial={{ x: window.innerWidth }}
-							animate={{ x: 0 }}
-							transition={{ delay: 1.5 }}
-							exit={{ opacity: 0 }}
-							style={{
-								top: 0,
-								y: '-40vh',
-								height: '100%',
-								alignSelf: 'flex-start',
-							}}>
-							<Heading color='white' size='md'>
-								Started:
-							</Heading>
-							<Text color='white' w='30vw' fontSize={'1.6em'} fontFamily={'DisposableDroid'}>
-								{start}
-							</Text>
-							<Heading color='white' size='md'>
-								Last Updated:
-							</Heading>
-							<Text color='white' w='30vw' fontSize={'1.6em'} fontFamily={'DisposableDroid'}>
-								{modify}
-							</Text>
-						</motion.div>
-					</HStack>
-				</div>
-			)}
 			{expanded && (
 				<motion.div
 					initial={{ x: window.innerWidth }}
