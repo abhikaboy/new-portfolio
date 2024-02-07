@@ -2,18 +2,10 @@ import { Center, GridItem, Text, Heading } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
-export default function ProjectNav({
-	text,
-	active,
-	num,
-	set,
-	right,
-	visible,
-	setVisible,
-}) {
+export default function ProjectNav({ text, active, num, set, right, visible, setVisible }) {
 	const variants = {
 		highlight: { scale: 1.25, opacity: 1 },
-		not: { scale: 1, opacity: active ? 1 : 0.4 },
+		not: { scale: 1, opacity: active ? 1 : 0.8 },
 	};
 	const [hoverRight, setRight] = useState(false);
 	return (
@@ -21,9 +13,9 @@ export default function ProjectNav({
 			<Center zIndex={59}>
 				<Text
 					color='white'
-					opacity={active ? 1 : 0.5}
+					opacity={active ? 1 : 1}
 					fontFamily={'DisposableDroid'}
-					fontSize='1.6em'
+					fontSize='1.8em'
 					style={{
 						zIndex: 60,
 					}}
@@ -36,8 +28,7 @@ export default function ProjectNav({
 						setTimeout(() => {
 							set(num);
 						}, 30);
-					}}
-				>
+					}}>
 					<motion.div
 						initial={{ opacity: 0 }}
 						exit={{ opacity: 0 }}
@@ -51,8 +42,7 @@ export default function ProjectNav({
 							setRight(false);
 						}}
 						style={{ zIndex: 60 }}
-						id={right ? 'right' : 'left'}
-					>
+						id={right ? 'right' : 'left'}>
 						{!right && !active ? '< ' : ''}
 						{text} {right ? '>' : ''}
 					</motion.div>

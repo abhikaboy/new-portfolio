@@ -10,11 +10,10 @@ export default function Footer() {
 			h='5vh'
 			backdropBlur={'2xl'}
 			bottom={0}
-			zIndex={99}
-		>
+			zIndex={99}>
 			<Center h='100%'>
 				<Text fontFamily={'DisposableDroid'} color='white'>
-					© Abhik Ray 2022
+					© Abhik Ray 2024
 				</Text>
 			</Center>
 		</Box>
