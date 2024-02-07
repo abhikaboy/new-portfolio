@@ -9,6 +9,7 @@ const projects = [
 	'Iris',
 	'Scouting App',
 	'JSON Forms',
+	'Schema Editor',
 	'Battle House',
 	'Venusian Village',
 	'Echidna',
@@ -45,13 +46,22 @@ const projectComponents = [
 		modify='7/21/2021'
 	/>,
 	<ProjectPage
-		thumbnail='https://cdn.discordapp.com/attachments/760776202121117706/1003205856101408768/Screen_Shot_2022-07-31_at_3.41.42_AM.png'
+		thumbnail='https://media.discordapp.net/attachments/227961738698555392/1204725069369311242/Screenshot_2024-02-07_at_4.46.43_AM.png?ex=65d5c6a7&is=65c351a7&hm=8808a957bc160a1262e3e9edfee29fbba5c4c0f4c3d99b04157f0aa12f1ae063&=&format=webp&quality=lossless&width=1806&height=1023'
 		title='JSON Form Generator'
-		description='A project built during my time interning with RevSpring. This tool builds forms dynamically based off complex JSON schema'
+		description='A project built during my time interning with RevSpring. This tool builds UI friendly forms dynamically based off complex JSON schema'
 		sub='Complex Forms from JSON Schema'
 		madeWith={['Angular', 'Javascript']}
 		start='Summer 2022'
 		modify='Summer 2022'
+	/>,
+	<ProjectPage
+		thumbnail='https://media.discordapp.net/attachments/227961738698555392/1204725069817974824/Screenshot_2024-02-07_at_4.45.57_AM.png?ex=65d5c6a7&is=65c351a7&hm=54dfcc61fa5c57b7a206ff3cb723d5e7827cb9d96ac5501d04b3e9408e9f43d2&=&format=webp&quality=lossless&width=1806&height=1023'
+		title='Schema Editor'
+		description='A project built during my time interning with RevSpring. This tool provides a friendly UI to build JSON schema either from scratch or from existing data'
+		sub='Schema Editor'
+		madeWith={['Angular', 'Javascript']}
+		start='Summer 2023'
+		modify='Summer 2023'
 	/>,
 	<ProjectPage
 		thumbnail='https://github.com/abhikaboy/GAME/blob/master/BattleHeroes/Images/TitleScreen.jpg?raw=true'
@@ -74,7 +84,7 @@ const projectComponents = [
 	<ProjectPage
 		thumbnail='https://static.zerochan.net/Echidna.%28Re%3AZero%29.full.2042368.jpg'
 		title='Echidna'
-		description='Bot used during quarantine to help students by helping adjusting to online school'
+		description='Bot used during quarantine to help students by providing resources, reminders, and a place to chat. It was used by over 100 students.'
 		sub='Quarantine Discord Bot'
 		madeWith={['Discord.js', 'Node', 'Javascript']}
 		start='10/23/2020'
